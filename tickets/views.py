@@ -10,7 +10,7 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/admin/login/')
+            return redirect('/admin')
     else:
         form = UserCreationForm()
     

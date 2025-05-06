@@ -32,8 +32,7 @@ class TicketAdmin(admin.ModelAdmin):
     # 🔒 Hide 'user' field from form
     def get_fields(self, request, obj=None):
         fields = super().get_fields(request, obj)
-        if request.user.has_perm('auth.view_user'):
-            fields = [f for f in fields if f != 'user']
+        fields = [f for f in fields if f != 'user']
         return fields
 
     # 🛡️ Prevent user from editing 'user' field even if passed in request
